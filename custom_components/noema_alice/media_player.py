@@ -1,6 +1,8 @@
 """Колонка как media_player: TTS, медиабраузер, радио, громкость."""
 from __future__ import annotations
 
+import asyncio
+
 import aiohttp
 
 from homeassistant.components import media_source
@@ -18,6 +20,8 @@ from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .const import CONF_DEVICE_ID, CONF_SERVER, DOMAIN
+
+TEXT_TYPES = {"dialog", "text", "tts"}
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback) -> None:
@@ -37,6 +41,8 @@ class NoemaAlicePlayer(MediaPlayerEntity):
         self._attr_unique_id = f"noema_alice_{device_id}"
         self._attr_state = MediaPlayerState.IDLE
         self._attr_volume_level = 0.5
+        self._known_volume: float | None = None  # последняя громкость, заданная через HA
+        self._restore_task: asyncio.Task | None = None
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, device_id)},
             name=name,
@@ -64,7 +70,33 @@ class NoemaAlicePlayer(MediaPlayerEntity):
         except Exception:  # noqa: BLE001
             self._attr_available = False
 
+    async def _say(self, text: str, volume: float | None) -> None:
+        """Озвучить текст; с volume громкость временно меняется и потом возвращается."""
+        if self._restore_task:
+            self._restore_task.cancel()
+            self._restore_task = None
+        prev = self._known_volume
+        if volume is not None:
+            await self._post("_cmd", {"command": "setVolume", "volume": round(volume, 2)})
+            await asyncio.sleep(0.5)
+        await self._post("_say", {"text": text})
+        if volume is not None and prev is not None:
+            self._restore_task = self.hass.async_create_task(self._restore_volume(prev, 3 + len(text) * 0.08))
+        elif volume is not None:
+            self._known_volume = volume
+            self._attr_volume_level = volume
+            self.async_write_ha_state()
+
+    async def _restore_volume(self, volume: float, delay: float) -> None:
+        # мост не знает, когда колонка договорила, поэтому ждём по длине текста
+        await asyncio.sleep(delay)
+        await self._post("_cmd", {"command": "setVolume", "volume": round(volume, 2)})
+
     async def async_play_media(self, media_type, media_id, **kwargs) -> None:
+        if str(media_type).lower() in TEXT_TYPES:
+            volume = (kwargs.get("extra") or {}).get("volume_level")
+            await self._say(str(media_id), float(volume) if volume is not None else None)
+            return
         if media_source.is_media_source_id(media_id):
             item = await media_source.async_resolve_media(self.hass, media_id, self.entity_id)
             media_id = item.url
@@ -100,4 +132,5 @@ class NoemaAlicePlayer(MediaPlayerEntity):
     async def async_set_volume_level(self, volume: float) -> None:
         await self._post("_cmd", {"command": "setVolume", "volume": round(volume, 2)})
         self._attr_volume_level = volume
+        self._known_volume = volume
         self.async_write_ha_state()
