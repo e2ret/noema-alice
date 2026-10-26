@@ -8,11 +8,11 @@
 
 | Патч | Добавляет |
 | --- | --- |
-| [apply_say.py](../bridge/apply_say.py) | информер `/_say` |
-| [apply_play.py](../bridge/apply_play.py) | плеер `/_play`, `/_cmd` и функцию `glagol()` |
-| [apply_stream.py](../bridge/apply_stream.py) | прокси радио `/_stream` |
-| [apply_restart.py](../bridge/apply_restart.py) | перезапуск моста `/_restart` |
-| [apply_config.py](../bridge/apply_config.py) | смена движков речи `/_config` |
+| [apply_say.py](https://github.com/e2ret/noema-alice/blob/main/bridge/apply_say.py) | информер `/_say` |
+| [apply_play.py](https://github.com/e2ret/noema-alice/blob/main/bridge/apply_play.py) | плеер `/_play`, `/_cmd` и функцию `glagol()` |
+| [apply_stream.py](https://github.com/e2ret/noema-alice/blob/main/bridge/apply_stream.py) | прокси радио `/_stream` |
+| [apply_restart.py](https://github.com/e2ret/noema-alice/blob/main/bridge/apply_restart.py) | перезапуск моста `/_restart` |
+| [apply_config.py](https://github.com/e2ret/noema-alice/blob/main/bridge/apply_config.py) | смена движков речи `/_config` |
 
 ```bash
 cd ~/quasard

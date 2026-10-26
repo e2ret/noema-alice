@@ -16,7 +16,7 @@
 3. Текст уходит в `POST /api/conversation/process`, ответ — текст.
 4. Мост синтезирует его через `POST /api/tts_get_url` (`tts.piper`), забирает звук и отдаёт колонке.
 
-Код этого тракта: [bridge/ha.py](../bridge/ha.py) и патч [bridge/apply_ha.py](../bridge/apply_ha.py).
+Код этого тракта: [bridge/ha.py](https://github.com/e2ret/noema-alice/blob/main/bridge/ha.py) и патч [bridge/apply_ha.py](https://github.com/e2ret/noema-alice/blob/main/bridge/apply_ha.py).
 
 ## Почему `/etc/hosts`, а не DNS роутера
 

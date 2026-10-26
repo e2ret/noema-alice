@@ -4,7 +4,7 @@
 
 ## 1. Установка
 
-Положите папку [custom_components/noema_alice](../custom_components/noema_alice) в `/config/custom_components/` на HA (Samba, Studio Code Server или File editor):
+Положите папку [custom_components/noema_alice](https://github.com/e2ret/noema-alice/tree/main/custom_components/noema_alice) в `/config/custom_components/` на HA (Samba, Studio Code Server или File editor):
 
 ```text
 /config/custom_components/noema_alice/

@@ -1,6 +1,6 @@
 # 4. Мост quasard → Home Assistant
 
-Колонка говорит только на протоколе Яндекса (uniproxy), поэтому нужен переводчик. [quasard](https://github.com/amirilivice/quasard) эмулирует облако Алисы. Патчи из каталога [bridge/](../bridge) заменяют его распознавание, «мозг» и синтез на REST API HA: `stt.vosk` → встроенный Assist → `tts.piper`. Torch, GPU и LLM не нужны.
+Колонка говорит только на протоколе Яндекса (uniproxy), поэтому нужен переводчик. [quasard](https://github.com/amirilivice/quasard) эмулирует облако Алисы. Патчи из каталога [bridge/](https://github.com/e2ret/noema-alice/tree/main/bridge) заменяют его распознавание, «мозг» и синтез на REST API HA: `stt.vosk` → встроенный Assist → `tts.piper`. Torch, GPU и LLM не нужны.
 
 ## 1. Установка quasard без тяжёлых зависимостей
 

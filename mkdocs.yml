@@ -1,0 +1,48 @@
+site_name: NOEMA Alice
+site_description: Яндекс Станция Мини как полностью локальный голосовой спутник Home Assistant
+site_url: https://e2ret.github.io/noema-alice/
+repo_url: https://github.com/e2ret/noema-alice
+repo_name: e2ret/noema-alice
+docs_dir: docs
+theme:
+  name: material
+  language: ru
+  palette:
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Светлая тема
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: Тёмная тема
+  features:
+    - navigation.footer
+    - navigation.top
+    - content.code.copy
+markdown_extensions:
+  - tables
+  - admonition
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+nav:
+  - Обзор: index.md
+  - Установка:
+      - 1. Контейнер на Proxmox: 01-container.md
+      - 2. Root на колонке: 02-root.md
+      - 3. Отключение обновлений и SSH: 03-ota-ssh.md
+      - 4. Мост quasard → Home Assistant: 04-bridge.md
+      - 5. Перенаправление колонки: 05-redirect.md
+      - 6. Служба systemd: 06-service.md
+      - 7. Информер, плеер и радио: 07-player.md
+      - 8. Интеграция в Home Assistant: 08-ha-integration.md
+      - 9. Изоляция от интернета: 09-isolation.md
+  - Использование:
+      - Голос Silero: 11-voice.md
+      - Голосовые команды: 12-voice-commands.md
+  - Справка:
+      - Обслуживание и диагностика: 10-maintenance.md
+      - Архитектура: architecture.md

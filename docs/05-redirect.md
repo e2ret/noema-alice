@@ -13,7 +13,7 @@ ss -tlpn | grep -E ':(80|443)\b'   # если остался python — kill <pi
 
 ## 2. Пропишите адреса
 
-Файл [station/hosts](../station/hosts) — итоговый `/etc/hosts` колонки. Замените в нём `192.168.1.49` на IP вашего моста, затем:
+Файл [station/hosts](https://github.com/e2ret/noema-alice/blob/main/station/hosts) — итоговый `/etc/hosts` колонки. Замените в нём `192.168.1.49` на IP вашего моста, затем:
 
 ```bash
 ssh -p 2222 root@192.168.1.102 'mount -o remount,rw /'

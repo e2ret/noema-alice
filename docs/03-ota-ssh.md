@@ -30,7 +30,7 @@ adb shell /data/opt/bin/dropbearkey -t ed25519 -f /data/opt/etc/dropbear/hk_ed25
 
 ## 3. Автозапуск SSH
 
-Скрипт автозапуска лежит в репозитории: [station/S99zdropbear](../station/S99zdropbear). Залейте его на колонку:
+Скрипт автозапуска лежит в репозитории: [station/S99zdropbear](https://github.com/e2ret/noema-alice/blob/main/station/S99zdropbear). Залейте его на колонку:
 
 ```bash
 adb shell mount -o remount,rw /

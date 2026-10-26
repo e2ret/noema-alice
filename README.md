@@ -56,7 +56,7 @@ Home Assistant
 8. [Интеграция в Home Assistant](docs/08-ha-integration.md)
 9. [Изоляция колонки от интернета](docs/09-isolation.md)
 
-Потом: [обслуживание и диагностика](docs/10-maintenance.md) [рекомендуемый голос Silero](docs/11-voice.md) и [голосовые команды](docs/12-voice-commands.md).
+Потом: [обслуживание и диагностика](docs/10-maintenance.md), [рекомендуемый голос Silero](docs/11-voice.md) и [голосовые команды](docs/12-voice-commands.md).
 
 ## Что в репозитории
 

@@ -3,3 +3,5 @@ ha.env
 *.env
 !*.env.example
 *.zip
+site/
+docs/index.md

@@ -1,6 +1,6 @@
 # 6. Служба systemd
 
-Мост работает как служба `alice-ha` и поднимается сам после перезагрузки контейнера. Юнит лежит в [bridge/alice-ha.service](../bridge/alice-ha.service).
+Мост работает как служба `alice-ha` и поднимается сам после перезагрузки контейнера. Юнит лежит в [bridge/alice-ha.service](https://github.com/e2ret/noema-alice/blob/main/bridge/alice-ha.service).
 
 Перед включением остановите все ручные запуски моста, иначе служба упадёт со `status=3` из-за занятых портов 80 и 443.
 
