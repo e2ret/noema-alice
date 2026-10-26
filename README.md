@@ -1,5 +1,7 @@
 # NOEMA Alice
 
+[![Translate](https://img.shields.io/badge/Translate-To_Your_Language-red)](https://translate.google.com/translate?sl=auto&u=https://github.com/e2ret/noema-alice)
+
 Яндекс Станция Мини как **полностью локальный** голосовой спутник Home Assistant. Аналог ESP32 с ESPHome: микрофоны и динамик от Яндекса, всё остальное работает у вас дома.
 
 - **Голос:** «Алиса, …» → Vosk → встроенный Assist HA → Piper. Без LLM.
