@@ -39,6 +39,7 @@ chmod 600 ha.env
 | `apply_say.py` | информер `/_say` ([часть 7](07-player.md)) |
 | `apply_play.py` | плеер `/_play`, `/_cmd` ([часть 7](07-player.md)) |
 | `apply_stream.py` | прокси радио `/_stream` ([часть 7](07-player.md)) |
+| `apply_restart.py` | перезапуск моста `/_restart` ([часть 7](07-player.md)) |
 | `config.toml` | порты 443 и 80, сертификаты lite-kit, `engine = "ha"` |
 | `ha.env.example` | переменные окружения |
 | `alice-ha.service` | systemd-юнит ([часть 6](06-service.md)) |
