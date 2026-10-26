@@ -1,0 +1,28 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NOEMA Alice",
+        "description": "alice-ha bridge address (the quasard container) and speaker name.",
+        "data": {
+          "server": "Bridge URL",
+          "name": "Speaker name"
+        }
+      },
+      "device": {
+        "title": "Choose speaker",
+        "description": "Several speakers are connected to the bridge. Pick one.",
+        "data": {
+          "device_id": "Speaker (device_id)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "The bridge does not respond. Check the URL and the alice-ha service.",
+      "no_devices": "The bridge works but no speaker is connected to it."
+    },
+    "abort": {
+      "already_configured": "This speaker is already added."
+    }
+  }
+}

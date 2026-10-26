@@ -1,0 +1,17 @@
+127.0.0.1       localhost
+127.0.1.1       buildroot
+192.168.1.49 uniproxy.alice.yandex.net
+192.168.1.49 quasar.yandex.net
+192.168.1.49 quasar.yandex.ru
+192.168.1.49 oauth.yandex.ru
+192.168.1.49 login.yandex.ru
+192.168.1.49 mobileproxy.passport.yandex.net
+192.168.1.49 startup.mobile.yandex.net
+192.168.1.49 report.appmetrica.yandex.net
+192.168.1.49 clck.yandex.net
+192.168.1.49 uniproxy-quic.alice.yandex.net
+192.168.1.49 push.yandex.ru
+192.168.1.49 scbh.yandex.net
+192.168.1.49 rpc.alice.yandex.net
+192.168.1.49 analytics.mobile.yandex.net
+192.168.1.49 updater.mobile.yandex.net

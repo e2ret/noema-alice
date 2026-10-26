@@ -1,0 +1,11 @@
+[Unit]
+Description=Yandex Station -> Home Assistant bridge
+After=network-online.target
+[Service]
+WorkingDirectory=/root/quasard
+EnvironmentFile=/root/quasard/ha.env
+ExecStart=/root/quasard/.venv/bin/python -m alice_server
+Restart=always
+RestartSec=3
+[Install]
+WantedBy=multi-user.target

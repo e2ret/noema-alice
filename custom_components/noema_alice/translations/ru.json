@@ -1,0 +1,21 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "NOEMA Alice",
+        "description": "Адрес моста alice-ha (контейнер с quasard) и имя колонки.",
+        "data": {"server": "Адрес моста", "name": "Имя колонки"}
+      },
+      "device": {
+        "title": "Выбор колонки",
+        "description": "К мосту подключено несколько колонок. Выберите нужную.",
+        "data": {"device_id": "Колонка (device_id)"}
+      }
+    },
+    "error": {
+      "cannot_connect": "Мост не отвечает. Проверьте адрес и службу alice-ha.",
+      "no_devices": "Мост работает, но колонка к нему не подключена."
+    },
+    "abort": {"already_configured": "Эта колонка уже добавлена."}
+  }
+}

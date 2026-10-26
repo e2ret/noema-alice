@@ -1,0 +1,13 @@
+[server]
+https_port = 443
+certfile = "/root/lite-kit/certs/fullchain.pem"
+keyfile = "/root/lite-kit/certs/quasar-all.key"
+http_port = 80
+log_traffic = false
+log_level = "INFO"
+[asr]
+engine = "ha"
+[tts]
+engine = "ha"
+[music]
+enabled = false
