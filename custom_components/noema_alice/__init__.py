@@ -8,7 +8,7 @@ from homeassistant.core import HomeAssistant
 from .const import CONF_DEVICE_ID, CONF_SERVER, DOMAIN
 from .coordinator import NoemaAliceCoordinator
 
-PLATFORMS = [Platform.MEDIA_PLAYER, Platform.BINARY_SENSOR, Platform.BUTTON]
+PLATFORMS = [Platform.MEDIA_PLAYER, Platform.BINARY_SENSOR, Platform.BUTTON, Platform.SELECT]
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:

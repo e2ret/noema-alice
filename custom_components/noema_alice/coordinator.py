@@ -29,4 +29,12 @@ class NoemaAliceCoordinator(DataUpdateCoordinator[dict]):
                 j = await r.json(content_type=None)
         except Exception as err:  # noqa: BLE001
             raise UpdateFailed(f"Мост не отвечает: {err}") from err
-        return {"station": bool((j.get("connections") or {}).get(self.device_id))}
+        cfg: dict = {}
+        try:  # нет патча apply_config.py на мосту — просто нет выбора движков
+            async with s.get(f"{self.server}/_config", timeout=aiohttp.ClientTimeout(total=5)) as r:
+                if r.status == 200:
+                    cfg = await r.json(content_type=None)
+        except Exception:  # noqa: BLE001
+            pass
+        return {"station": bool((j.get("connections") or {}).get(self.device_id)),
+                "tts": cfg.get("tts"), "stt": cfg.get("stt")}
