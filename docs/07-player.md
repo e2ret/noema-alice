@@ -11,12 +11,14 @@
 | [apply_say.py](../bridge/apply_say.py) | информер `/_say` |
 | [apply_play.py](../bridge/apply_play.py) | плеер `/_play`, `/_cmd` и функцию `glagol()` |
 | [apply_stream.py](../bridge/apply_stream.py) | прокси радио `/_stream` |
+| [apply_restart.py](../bridge/apply_restart.py) | перезапуск моста `/_restart` |
 
 ```bash
 cd ~/quasard
 .venv/bin/python apply_say.py
 .venv/bin/python apply_play.py
 .venv/bin/python apply_stream.py
+.venv/bin/python apply_restart.py
 systemctl restart alice-ha
 ```
 
@@ -31,6 +33,9 @@ systemctl restart alice-ha
 | `POST /_cmd/<device_id>` | `{"command": "stop"/"play"/"next"/"prev"}` или `{"command": "setVolume", "volume": 0.4}` | управление плеером через glagol |
 | `GET /_stream?u=<url>` | — | прокси внешнего потока без ICY |
 | `GET /_status` | — | подключённые колонки (`connections`) |
+| `POST /_restart` | — | перезапуск службы `alice-ha` (колонка переподключится примерно через 30 с) |
+
+Адреса моста без пароля, как и остальные: доступны всем в локальной сети. Не открывайте порт 80 моста наружу.
 
 Внешние адреса (не `10.x`, `192.168.x`, `172.16–31.x`, `127.x` и не `homeassistant`) мост заворачивает в `/_stream` сам. Для этого в `ha.env` должен быть задан `BRIDGE_URL`.
 

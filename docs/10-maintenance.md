@@ -12,7 +12,7 @@
 
 ```bash
 cd ~/quasard && git pull
-.venv/bin/python apply_ha.py && .venv/bin/python apply_say.py && .venv/bin/python apply_play.py && .venv/bin/python apply_stream.py
+.venv/bin/python apply_ha.py && .venv/bin/python apply_say.py && .venv/bin/python apply_play.py && .venv/bin/python apply_stream.py && .venv/bin/python apply_restart.py
 sed -i 's|@r.get("/generate_204")|@r.api_route("/generate_204", methods=["GET", "HEAD"])|' alice_server/http_api.py
 systemctl restart alice-ha
 ```
